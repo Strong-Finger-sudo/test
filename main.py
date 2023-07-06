@@ -1,16 +1,29 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from enum import Enum
+from math import sin, cos
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class CoordinateSystem(Enum):
+    CARTESIAN = 1
+    POLAR = 2
 
+class Point():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-# Press the green button in the gutter to run the script.
+    def __str__(self):
+        return f'({self.x}, {self.y})'
+
+    @staticmethod
+    def new_cartesian_point(x, y):
+        return Point(x, y)
+
+    @staticmethod
+    def new_polar_point(rho, theta):
+        return Point(rho * cos(theta), rho * sin(theta))
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    p1 = Point.new_cartesian_point(1, 2)
+    print(p1)
+    p2 = Point.new_polar_point(1, 2)
+    print(p2)
