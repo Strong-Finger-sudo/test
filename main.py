@@ -1,7 +1,7 @@
 from enum import Enum
 from math import sin, cos
 
-
+#Fabrick method
 class CoordinateSystem(Enum):
     CARTESIAN = 1
     POLAR = 2
@@ -23,7 +23,4 @@ class Point():
         return Point(rho * cos(theta), rho * sin(theta))
 
 if __name__ == '__main__':
-    p1 = Point.new_cartesian_point(1, 2)
-    print(p1)
-    p2 = Point.new_polar_point(1, 2)
-    print(p2)
+    pass
